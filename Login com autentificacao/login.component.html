@@ -1,17 +1,23 @@
-<h2>Login</h2>
 
-<div class="row">
-     <div class="input-field col s12">
-       <input [(ngModel)]="usuario.nome" id="usuario" type="text" class="validate">
-       <label class="active" for="usuario">Usuário</label>
-     </div>
+<img class="h-screen absolute w-full backdrop-blur" src="assets/images/backgound-login.png">
+
+<div class="h-screen relative w-full z-10">
+  <div class="grid alinhamento-vertical">
+    <h2 class="relative espacamento text-2xl fonte">Login</h2>
+    <div class="row">
+         <div class="input-field col largura">
+           <input [(ngModel)]="usuario.nome" id="usuario" type="text" class="validate">
+           <label class="active" for="usuario">Usuário</label>
+         </div>
+    </div>
+    
+    <div class="row">
+         <div class="input-field col largura">
+           <input [(ngModel)]="usuario.senha" id="senha" type="password" class="validate">
+           <label class="active" for="senha">Senha</label>
+         </div>
+    </div>
+  </div>
+  <a class="waves-effect waves-light btn posicao" (click)="FazerLogin()">Enviar</a>
 </div>
 
-<div class="row">
-     <div class="input-field col s12">
-       <input [(ngModel)]="usuario.senha" id="senha" type="password" class="validate">
-       <label class="active" for="senha">Senha</label>
-     </div>
-</div>
-
-<a class="waves-effect waves-light btn" (click)="FazerLogin()">Enviar</a>

@@ -1,0 +1,22 @@
+.largura {
+     width: 60rem;
+}
+
+.posicao{
+     left: 48%;
+     @apply absolute transform translate-x-0;
+}
+
+.alinhamento-vertical{
+     padding-top: 10%;
+}
+
+.espacamento{
+     left: 48%;
+}
+
+.fonte{
+     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+     font-size: xx-large;
+     color: rgb(47, 45, 45);
+}

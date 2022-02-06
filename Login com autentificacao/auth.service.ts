@@ -12,7 +12,7 @@ export class AuthService {
   constructor(private router: Router) { }
 
   FazerLogin(usuario: Usuario){
-    if(usuario.nome === 'usuario@email.com' && usuario.senha === '123456'){
+    if(usuario.nome === 'wesley' && usuario.senha === '123456'){
       this.usuarioAutenticado = true;
 
       this.router.navigate(['/animacoes'])
@@ -20,5 +20,8 @@ export class AuthService {
     else{
       this.usuarioAutenticado = false;
     }
+  }
+  UsuarioEstaAutenticado(){
+    return this.usuarioAutenticado
   }
 }
