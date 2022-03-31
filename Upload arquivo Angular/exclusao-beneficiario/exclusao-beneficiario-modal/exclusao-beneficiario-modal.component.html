@@ -1,0 +1,21 @@
+<uni-title ds_Titulo="Termo de Responsabilidade"></uni-title>
+
+<div class="div-informacoes">
+    <span>Leia abaixo o Termo de Responsabilidade e escolha uma das opções se deseja aceitar ou não o termo:</span>
+
+    <div class="div-termo">
+        {{ds_Termo_Responsabilidade}}
+    </div>
+
+    <div fxLayout="row" fxLayoutGap="16px" fxLayoutAlign="center center">
+        <div style="width: 310px; margin-top: 24px;">
+            <uni-button buttonClass="btn-outline" (click)="Voltar()">Voltar
+            </uni-button>
+        </div>
+
+        <div style="width: 310px; margin-top: 24px;">
+            <uni-button buttonClass="btn-primary" (click)="Aceitar()">Aceitar
+            </uni-button>
+        </div>
+    </div>
+</div>

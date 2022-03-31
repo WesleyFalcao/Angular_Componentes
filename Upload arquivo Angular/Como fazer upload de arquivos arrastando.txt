@@ -1,0 +1,13 @@
+Como fazer upload de arquivos arrastando
+
+
+1° No arquvio exclusao-beneficiario.component.html, da linha 175 a 186, tem a lógica que faz todo processo que é feito através da diretiva eDragDrop.
+
+2° A lógica é o seguinte: Quando é clicado no campo, o onclick="browse.click()" chama o input da linha 188, que por sua vez chama a função (change)="Adicionar_RN($event)" que faz abrir o explorador de arquivos.
+
+3° Basicamente o que a diretiva faz é tornar o arquivo "arrastável" e caso não tenham arquivos os passa para a função Adicionar_RN. Basicamente também as funções stopPropagation() e preventDefault() servem para cancelar eventos.
+
+
+stopPropagation(): exemplo, eu tenho um input e quando eu dou um TAB eu passo pro próximo input, o stopPropagation() cancela isso.
+
+

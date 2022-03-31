@@ -1,0 +1,17 @@
+.div-informacoes {
+    margin-top: 24px;
+
+    span{
+        font-weight: 500;
+    }
+
+    .div-termo {
+        white-space: pre-wrap;
+        border-radius: 5px;
+        border: 1px solid black;
+        padding: 8px;
+        height: 400px;
+        overflow-y: scroll;
+        margin: 16px 0;
+    }
+}

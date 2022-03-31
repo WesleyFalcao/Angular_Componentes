@@ -1,0 +1,221 @@
+<uni-success-screen [bShowOba]='false' router="/gerenciamento-beneficiarios" *ngIf="b_Finalizado; else main">
+    <h1 class="title" style="color: var(--verde-unimed); margin-top: 24px;">
+        Movimentação de exclusão solicitada com sucesso, segue o(s) protocolo(s) da exclusão(ões):
+        {{nr_Movimentacoes}} <br><br>
+        Aguarde a nossa equipe efetivar a exclusão 😀
+    </h1>
+</uni-success-screen>
+
+<ng-template #main>
+    <div class="div-pagina">
+
+        <uni-title ds_Titulo="Exclusão do beneficiário"></uni-title>
+
+        <uni-aviso style="margin-top: 16px; display: block;" ds_Titulo="Como funciona?"
+            ds_Texto="❗ Ao realizar a exclusão de titular, são automaticamente excluídos os dependentes.">
+        </uni-aviso>
+
+        <div class="div-form" *ngIf="nr_Index == 1; else rn412">
+            <div class="div-limite" *ngIf="dt_Limite_Exclusao">
+                <svg-icon src="assets/icons/alert.svg"
+                    [svgStyle]="{ 'width.px': 20, position: 'relative',top: '5px', stroke:'#ED1651' }"></svg-icon>
+                Lembrando: o dia limite para exclusão desse
+                mês é dia
+                {{dt_Limite_Exclusao}}
+            </div>
+
+            <h3 class="h3-titulo">Beneficiário</h3>
+
+            <div class="div-input" fxLayout="row" fxLayoutGap="8px">
+                <uni-selection-input fxFlex="100" #beneficiario label="Beneficiário" [objModalParams]="objModalParams"
+                    ds_Campo_Retorno="nr_Matricula" ds_Campo_Exibicao="nm_Beneficiario"
+                    [control]="objFormGroup.get('nr_Matricula')">
+                </uni-selection-input>
+            </div>
+
+            <div class="div-input">
+                <uni-input class="input-e-mail" label="E-mail" [control]="$any(objFormGroup.get('ds_Email'))">
+                </uni-input>
+            </div>
+
+            <uni-input class="input-celular" label="Celular" [control]="$any(objFormGroup.get('nr_Celular'))"
+                tp_Mask="celular">
+            </uni-input>
+
+            <h3 class="h3-titulo">Informações para exclusão</h3>
+
+            <div class="div-input">
+
+                <uni-selection-input label="Motivo" ds_Campo_Retorno="cd_Motivo" ds_Campo_Exibicao="nm_Motivo"
+                    [fCarregamento]="f_Motivos.bind(this)" [control]="objFormGroup.get('cd_Motivo')">
+                </uni-selection-input>
+
+                <div class="div-input">
+                    <uni-selection-input *ngIf="b_Submotivo" label="Detalhe" ds_Campo_Retorno="cd_Submotivo"
+                        ds_Campo_Exibicao="nm_Submotivo" [fCarregamento]="f_Submotivos.bind(this)"
+                        [control]="objFormGroup.get('cd_Submotivo')">
+                    </uni-selection-input>
+                </div>
+
+                <uni-selection-input *ngIf="objFormGroup.get('cd_Motivo').value == 3" label="Motivo da demissão"
+                    ds_Campo_Retorno="cd_Motivo_Demissao" ds_Campo_Exibicao="nm_Motivo_Demissao"
+                    [fCarregamento]="f_Motivo_Demissao.bind(this)" [control]="objFormGroup.get('cd_Motivo_Demissao')">
+                </uni-selection-input>
+            </div>
+
+            <ng-container class="div-admin" *ngIf="b_Administradora">
+                <h3 class="h3-titulo"> Administradora de benefício </h3>
+
+                <div class="div-input">
+                    <uni-input label="Protocolo" [control]="$any(objFormGroup.get('nr_Protocolo'))" tp_Mask="codigo">
+                    </uni-input>
+
+                    <uni-input class="data-input" label="Data adm."
+                        [control]="$any(objFormGroup.get('dt_Administradora'))" type="datetime-local"
+                        [options]="{ds_Maximo: dh_Hoje }">
+                    </uni-input>
+                </div>
+            </ng-container>
+
+            <h3 class="h3-titulo"
+                *ngIf="objFormGroup.get('cd_Motivo_Demissao').value && objFormGroup.get('cd_Motivo_Demissao').value != 4">
+                Benefício
+                demitido/aposentado</h3>
+
+            <div class="div-input">
+                <uni-selection-input
+                    *ngIf="objFormGroup.get('cd_Motivo_Demissao').value && objFormGroup.get('cd_Motivo_Demissao').value != 4"
+                    label="Contribuía com o plano?" ds_Campo_Retorno="sn_Contribuia" ds_Campo_Exibicao="nm_Contribuia"
+                    [fCarregamento]="f_Contribuia.bind(this)" [control]="objFormGroup.get('sn_Contribuia')">
+                </uni-selection-input>
+
+                <ng-container *ngIf='objFormGroup.get("sn_Contribuia").value == "S"'>
+                    <uni-input fxFlex="25" label="Anos" [control]="$any(objFormGroup.get('nr_Anos'))" tp_Mask="inteiro">
+                    </uni-input>
+
+                    <uni-input fxFlex="25" label="Meses" [control]="$any(objFormGroup.get('nr_Meses'))"
+                        tp_Mask="inteiro">
+                    </uni-input>
+                </ng-container>
+            </div>
+
+            <div class="div-input" *ngIf='objFormGroup.get("sn_Contribuia").value == "S"'>
+
+                <div class="div-input">
+                    <uni-selection-input label="Quer o benefício?" ds_Campo_Retorno="cd_Beneficio"
+                        ds_Campo_Exibicao="nm_Beneficio" [fCarregamento]="f_Beneficio.bind(this)"
+                        [control]="objFormGroup.get('cd_Beneficio')">
+                    </uni-selection-input>
+                </div>
+
+                <uni-input
+                    *ngIf='objFormGroup.get("cd_Beneficio").value !== null && objFormGroup.get("cd_Beneficio").value !== 0'
+                    label="Data de comunicação do aviso prévio" [control]="$any(objFormGroup.get('dt_Aviso_Previo'))"
+                    type="date">
+                </uni-input>
+            </div>
+
+            <h3 class="h3-titulo">Informe a data limite da cobertura do plano</h3>
+
+            <div class="div-input data-input">
+                <uni-input label="Data de Exclusão" [control]="$any(objFormGroup.get('dt_Exclusao'))" type="date"
+                    [options]="{ds_Minimo: dt_Minimo, ds_Maximo: dt_Maximo}">
+                </uni-input>
+            </div>
+
+            <div style="margin-top: 24px;" fxLayoutAlign="center center">
+                <div fxFlex="310px" (click)="Acender_Campos()">
+                    <uni-button (click)="Salvar()" [disabled]="objFormGroup.invalid" buttonClass="btn-primary">Salvar
+                    </uni-button>
+                </div>
+            </div>
+        </div>
+
+        <ng-template #rn412>
+
+            <div class="div-progress-tab">
+                <uni-progress-tab fxFlex="100" [objArrayTabs]="objArrayTabs"></uni-progress-tab>
+            </div>
+
+            <div class="div-form">
+                <div class="div-introducao">
+                    <p>
+                        {{ds_Texto_Arquivo}}
+                    </p>
+                </div>
+
+                <button *ngIf="tp_Upload_Arquivo != 2" class="button-exclusao" (click)="Abrir_Carta()">
+                    <svg-icon src="assets/icons/download.svg"
+                        [svgStyle]="{ 'width.px': 20, 'height.px': 20, 'fill':'white' }">
+                    </svg-icon>
+
+                    <span class="margin-left: 5px;">
+                        {{tp_Upload_Arquivo == 0 ? "Carta de exclusão" : "Carta de demissão"}}
+                    </span>
+                </button>
+
+                <div class="div-buttons-envio" fxLayoutAlign="center center" fxLayoutGap="16px">
+                    <!-- <div class="div-envio">
+                        <div class="div-envio-body" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="8px">
+                            <div>
+                                <svg-icon src="assets/icons/send.svg">
+                                </svg-icon>
+                            </div>
+
+                            <div>
+                                Envie por e-mail a carta de exclusão para assinar digitalmente
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        ou
+                    </div> -->
+
+                    <div class="div-envio" eDragDrop (onFileDropped)="Adicionar_RN($event)" onclick="browse.click()">
+                        <div class="div-envio-body" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="8px">
+                            <div>
+                                <svg-icon src="assets/icons/upload.svg">
+                                </svg-icon>
+                            </div>
+
+                            <div>
+                                Clique aqui ou arraste o arquivo assinado
+                            </div>
+                        </div>
+                    </div>
+
+                    <input multiple id='browse' type='file' style='width:0px' (change)="Adicionar_RN($event)">
+                </div>
+
+                <div class="div-arquivos" fxLayoutAlign="space-evenly center" fxLayoutGap="16px">
+                    <div *ngIf="arquivos.length == 0" class="div-nenhum-arquivo">
+                        Nenhum arquivo foi adicionado
+                    </div>
+
+                    <div *ngFor="let arquivo of arquivos; let i = index" class="div-anexo" fxFlex="125px"
+                        fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="16px">
+                        <div class="div-close" (click)="Remover_Arquivo(i)">
+                            <svg-icon src="assets/icons/close.svg">
+                            </svg-icon>
+                        </div>
+
+                        <img class="img-file-pdf" src="assets/images/file-pdf.png">
+
+                        <p class="p-nome-arquivo">
+                            {{arquivo.name}}
+                        </p>
+                    </div>
+                </div>
+
+                <div style="margin-top: 40px;" fxLayoutAlign="center center">
+                    <div fxFlex="310px">
+                        <uni-button [disabled]="arquivos.length == 0" (click)="Enviar_RN()" buttonClass="btn-primary">
+                            Confirmar
+                        </uni-button>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </div>
+</ng-template>

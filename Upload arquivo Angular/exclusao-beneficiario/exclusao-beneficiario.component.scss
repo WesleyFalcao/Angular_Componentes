@@ -1,0 +1,188 @@
+.div-pagina {
+    width: 85%;
+    margin: 0 auto;
+    margin-top: 26%;
+    margin-top: calc(10vh + 20px);
+
+    @media (min-width: 720px) {
+        width: 70%;
+    }
+
+    @media (min-width: 1200px) {     
+        margin-top: calc(10vh + 36px);
+    }
+}
+
+.div-limite {
+    text-align: center;
+    color: var(--rosa-unimed);
+    padding-left: 16px;
+    font-weight: bold;
+}
+
+.div-form {
+    background: white;
+    padding: 16px;
+    border-radius: 5px;
+
+    .div-input {
+        margin-top: 8px; 
+        margin-bottom: 8px;
+    }
+    
+    .data-input{
+        width: 100%;
+    }
+
+    .h3-titulo {
+        margin: 16px 0;
+        color: var(--marrom-unimed);
+    }
+}
+
+.div-admin{
+    width: 100%;
+}
+
+.div-form {
+    margin-top: 16px;
+
+    .div-introducao {
+        margin: 0 auto;
+        text-align: left;
+
+        .p{
+            width: 100%;
+            font-size: small;
+            text-align: left;
+            margin-top: 12px;
+
+            @media (min-width: 768px) {
+                font-size: large;
+            }
+        }
+    }
+
+    .button-exclusao {
+        position: absolute;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-54%, -50%);
+        background: var(--verde-unimed);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        width: 196px;
+        height: 36px;
+        font-size: var(--font-size-normal);
+        margin: 0 auto;
+        margin-top: 40px;
+        cursor: pointer;
+    }
+
+    .div-buttons-envio {
+        margin: 0 auto;
+        margin-top: 40px;
+    }
+
+    .div-envio {
+        border-radius: 5px;
+        border: 1px solid var(--cinza-claro-unimed);
+        width: 185px;
+        margin-top: 4rem;
+        height: 185px;
+
+        .div-envio-body {
+            height: 100%;
+            cursor: pointer;
+            padding: 8px;
+            text-align: center;
+        }
+    }
+}
+
+.div-nenhum-arquivo{
+    text-align: center;
+
+    @media (min-width: 1200px) {
+        
+        line-height: 148px;
+        font-size: 20px;
+        text-align: center;
+        width: 100%;
+    }
+}
+
+.img-file-pdf{
+    width: 1.25rem;
+
+    @media (min-width: 1200px) {
+        width: 3.75rem;
+    }
+}
+
+.div-arquivos {
+    width: 85%;
+    border: 1px solid var(--cinza-escuro-unimed);
+    background: #f1f1f1;
+    border-radius: 5px;
+    margin-top: 40px;
+    height: 100px;
+    overflow-x: auto;
+    position: relative;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -8%);
+
+    @media (min-width: 768px) {
+        height: 155px;
+    }
+}
+
+.div-progress-tab{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+
+    .uni-progress{
+
+    }
+}
+
+.div-anexo {
+    width: 125px;
+    height: 135px;
+    margin-top: 15px;
+    position: relative;
+
+    .p-nome-arquivo {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        width: 100px;
+        overflow: hidden;
+        text-align: center;
+        font-size: var(--font-size-smaller);
+    }
+
+    .div-close {
+        cursor: pointer;
+        position: absolute;
+        right: 12px;
+        top: 24px; 
+        border-radius: 50%;
+        height: 26px;
+        width: 26px;
+        text-align: center;
+
+        @media (min-width: 1200px) {
+            top: -2px;
+            right: -5px;
+        }
+    }
+
+    p {
+        font-weight: bold;
+        font-size: 20px;
+        margin: 0;
+    }
+}
