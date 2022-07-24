@@ -1,0 +1,313 @@
+.input {
+    position: relative;
+    background-color: transparent;
+    border-radius: 3px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 16px;
+
+    label {
+        position: absolute;
+        margin: 0rem 1rem 0 1rem;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: normal;
+        line-height: 12px;
+        color: #000000;
+        background-color: transparent;
+        left: 0;
+        right: 0;
+
+        .note {
+            font-style: normal;
+            font-weight: normal;
+            line-height: 12px;
+            color: #000000;
+            background-color: transparent;
+            float: right;
+            left: 0;
+            right: 0;
+            font-size: 16px;
+        }
+
+        .required {
+            font-weight: bold;
+            margin-left: 8px;
+            vertical-align: middle;
+            display: inline-block;
+            font-size: 1.35rem;
+        }
+    }
+
+    &.full {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        color: #131315;
+        background: transparent;
+        width: 100%;
+        outline: none;
+        border-bottom: 1px #E9E9E9 solid;
+        border-left: 1px #E9E9E9 solid;
+        border-right: 1px #E9E9E9 solid;
+        border-top: none;
+        transition-duration: 280ms;
+        resize: none;
+        line-height: 1.15;
+        margin: 0;
+        overflow: auto;
+
+        &._disabled {
+            background: rgba($color: #ffffff, $alpha: 0.5);
+            border-bottom: 1px #E9E9E9 solid;
+            transition-duration: 280ms;
+            cursor: not-allowed;
+        }
+
+        &._disabled select,
+        &._disabled label {
+            background: none;
+            cursor: not-allowed;
+        }
+    }
+
+    textarea {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        color: #131315;
+        padding: 2rem 1rem 1rem 1rem;
+        background: transparent;
+        width: 100%;
+        outline: none;
+        border-bottom: 1px #E9E9E9 solid;
+        border-left: 1px #E9E9E9 solid;
+        border-right: 1px #E9E9E9 solid;
+        border-top: none;
+        transition-duration: 280ms;
+        height: 150px;
+        resize: none;
+        line-height: 1.15;
+        margin: 0;
+        overflow: auto;
+
+        @media screen and (min-width: 768px) {
+            border-top: 1px #E9E9E9 solid;
+        }
+
+        &:not([disabled]):hover,
+        &:not([disabled]):focus {
+            border-bottom: 1px #131315 solid;
+            transition-duration: 280ms;
+        }
+
+        &:not([disabled]):hover ~ label,
+        &:not([disabled]):focus ~ label {
+            color: #131315;
+            transition-duration: 280ms;
+        }
+
+        &.ng-invalid.ng-touched {
+            border-left: 2px solid #131315;
+            border-right: 2px solid #131315;
+            border-bottom: 2px solid #131315; 
+        }
+
+        &:disabled {
+            background: rgba($color: #ffffff, $alpha: 0.5);
+            border-bottom: 1px #E9E9E9 solid;
+            transition-duration: 280ms;
+            cursor: not-allowed;
+        }
+
+        &:disabled ~ label {
+            background: none;
+        }
+    }
+
+    input:not([type='checkbox']) {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        color: #1818c9;
+        padding: 1rem 1rem 0.5rem 1rem;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        background: transparent;
+        width: 100%;
+        outline: none;
+        border-bottom: 1px #d1d1d1 solid;
+        border-left: 1px #d1d1d1 solid;
+        border-right: 1px #d1d1d1 solid;
+        border-top: none;
+        transition-duration: 0.28s;
+        border-radius: 3px;
+        height: 40px;
+        margin-top: 8px;
+
+        @media (min-width: 1200px) {
+            height: 15px;
+        }
+
+        &:not([disabled]):hover,
+        &:not([disabled]):focus {
+            border-bottom: 1px #131315 solid;
+            transition-duration: 280ms;
+        }
+
+        &:not([disabled]):hover ~ label,
+        &:not([disabled]):focus ~ label {
+            color: #131315;
+            transition-duration: 280ms;
+        }
+
+        &.ng-invalid.ng-touched {
+            border-left: 2px solid #131315;
+            border-right: 2px solid #131315;
+            border-bottom: 2px solid #131315;       
+        }
+
+        &:disabled {
+            background: rgba($color: #ffffff, $alpha: 0.5);
+            border-bottom: 1px #E9E9E9 solid;
+            transition-duration: 280ms;
+            cursor: not-allowed;
+        }
+
+        &:disabled ~ label {
+            background: none;
+        }
+    }
+
+    .time-hour,
+    .time-minutes {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        color: #131315;
+        padding: 2rem 1rem 1rem 1rem;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        background: white;
+        outline: none;
+        border: none;
+        transition-duration: 280ms;
+        height: 75px;
+    }
+
+    .loading {
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        width: 25px;
+        height: 25px;
+        background: url('/assets/unimed-design-system/images/loading.gif') no-repeat;
+        background-size: contain;
+    }
+
+    .input-error {
+        border-top: none;
+        border-left: 1px solid #b9202a !important;
+        /* red */
+    }
+
+    @media screen and (max-width: 768px) {
+        &:first-of-type input {
+            border-radius: 4px 4px 0 0;
+        }
+
+        &:last-of-type input {
+            border-radius: 0 0 4px 4px;
+        }
+    }
+
+    &.input-select {
+
+        input {
+            padding: 2rem 2.75rem 1rem 1rem;
+            cursor: pointer;
+        }
+
+        &::after {
+            position: absolute;
+            content: '';
+            background-image: url("data:image/svg+xml,%3Csvg width='19' height='12' viewBox='0 0 19 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.2325 0L9.5 7.25167L16.7675 0L19 2.2325L9.5 11.7325L0 2.2325L2.2325 0Z' fill='%235B5C65'/%3E%3C/svg%3E%0A");
+            width: 19px;
+            height: 12px;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .btn-clean {
+            line-height: 0;
+            padding: 0;
+            position: absolute;
+            top: 50%;
+            right: 0.75rem;
+            transform: translateY(-50%);
+            z-index: 5;
+            cursor: pointer;
+            border: 1px #5d5d5d solid;
+            border-radius: 4px;
+            background: #F5F5F5;
+
+            &:hover {
+                border-color: #353535;
+            }
+        }
+    }
+
+    &.input-button {
+
+        button {
+            position: absolute;
+            right: 0.5rem;
+            top: 60%;
+            transform: translateY(-50%);
+            outline: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+
+            &:hover,
+            &:focus {
+                cursor: pointer;
+                opacity: 0.76;
+            }
+
+            &:active {
+                transform: scale(0.92) translateY(-50%);
+            }
+        }
+    }
+}
+
+.input-borda:hover{
+    
+    transition: .280s; 
+}
+
+.button{
+    width: 200px;
+    height: 50px;
+    margin: 0;
+    margin-top: 2rem;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    border-radius: 30px;
+    border: none;
+    background-color: #5d5d5d;
+    transition: 0.5s ease-in-out;
+}
+
+.button:hover{
+    background-color: #000000;
+    width: 250px;
+    height: 50px;
+}
