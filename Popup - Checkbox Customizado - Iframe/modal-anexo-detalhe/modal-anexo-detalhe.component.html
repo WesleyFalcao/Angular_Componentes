@@ -1,0 +1,38 @@
+<div class="div-container">
+    <div class="title">
+        <img class="img-logo" src="assets/images/logo.png">
+        <div (click)="Voltar()">
+            <svg class="img-arrow-back" width="16" height="17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M15 7.674H3.83l4.88-5.19a1.12 1.12 0 000-1.51.955.955 0 00-1.41 0L.71 7.983a1.107 1.107 0 000 1.5l6.59 7.007a.955.955 0 001.41 0c.39-.415.39-1.085 0-1.5L3.83 9.802H15c.55 0 1-.479 1-1.064 0-.585-.45-1.063-1-1.063z"
+                    fill="#000" />
+            </svg>
+        </div>
+        <p>Proposta > {{cd_Movimentacao}} > Anexos(s) > {{nm_Tipo_Arquivo}}</p>
+        <div class="div-titles">
+            <div>Anexos(s)</div>
+        </div>
+    </div>
+    <div class="div-separador">
+    </div>
+    <div class="div-grid-anexo-selecionado" *ngFor="let anexo of objArrayAnexosFilter">
+        <div [title]="anexo.nm_Arquivo" class="div-ellipsis">{{anexo.nm_Arquivo}}</div>
+        <div class="div-ellipsis div-aling-text  div-aling-text-visualizar div-color">Visualizar</div>
+    </div>
+    <div class="div-separador">
+    </div>
+    <div class="div-alinhar-centro">Verificações</div>
+
+    <div *ngFor="let iten of objArrayVerificacoes, let i = index">
+        <input 
+        type="checkbox"
+        id="iten{{i}}"
+        name="iten{{i}}" 
+        [(ngModel)]="iten.sn_Okay"
+        [checked]="iten.sn_Okay"/>
+        <label for="iten{{i}}">{{iten.nm_Verificacao}}</label>
+        {{iten.sn_Okay}}
+    </div>
+    <iframe src="ds_Url" frameborder="0"></iframe>
+    <!-- <img [src]="objArrayAnexosFilter[0].ds_Token"> -->
+</div>

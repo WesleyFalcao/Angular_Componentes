@@ -1,0 +1,199 @@
+.div-container {
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media screen and (min-width: 600px) {
+        max-width: 600px
+    }
+
+    @media (min-width: 720px) {
+        max-width: 800px;
+    }
+
+    @media (min-width: 1280px) {
+        max-width: 1300px;
+    }
+}
+
+.div-anexo {
+    font-weight: bold;
+    cursor: pointer;
+    background: green;
+    height: 22px;
+    width: 22px;
+    top: 0;
+    border-radius: 50%;
+    font-size: 16px;
+}
+
+.img-width-icon {
+    width: 2rem;
+    height: 2rem;
+    top: 0;
+    cursor: pointer;
+}
+
+.div-ellipsis {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 1rem;
+}
+
+.div-aling-text {
+    text-align: center;
+}
+
+.div-titles {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.div-alinhar-centro {
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.div-separador {
+    content: '';
+    width: 100%;
+    height: 0.5px;
+    margin-top: 0.3rem;
+    margin-bottom: 1rem;
+    background-color: rgb(199, 199, 199);
+}
+
+.div-aling-text-visualizar {
+    text-align: right;
+}
+
+.img-arrow-back {
+    cursor: pointer;
+}
+
+.img-logo {
+    width: 5rem;
+    position: relative;
+    margin-right: -50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 2.6rem;
+}
+
+.div-color {
+    color: var(--laranja-unimed);
+    cursor: pointer;
+}
+
+.div-color:hover {
+    text-decoration: underline;
+}
+
+.title {
+    position: relative;
+
+    p {
+        margin-top: 1rem;
+        font-size: 1.4rem;
+        color: var(--laranja-unimed);
+    }
+}
+
+.div-grid-anexo-selecionado {
+    display: grid;
+    margin-bottom: 1rem;
+    grid-template-columns: 3fr 1fr;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.div-grid-anexo-selecionado:hover {
+    background-color: rgb(241, 241, 241);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* Base for label styling */
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+  position: absolute;
+  left: 0;
+  opacity: 0.01;
+}
+
+[type="checkbox"]:not(:checked) + label,
+[type="checkbox"]:checked + label {
+  position: relative;
+  padding-left: 2.3em;
+  font-size: 0.95em;
+  line-height: 1.7;
+  cursor: pointer;
+}
+
+/* checkbox aspect */
+[type="checkbox"]:not(:checked) + label:before,
+[type="checkbox"]:checked + label:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1em;
+  height: 1em;
+  border: 2px solid gray;
+  background: #FFF;
+  border-radius: .2em;
+  box-shadow: inset 0 1px 3px rgba(0,0,0, .1), 0 0 0 var(--rosa-unimed);
+  -webkit-transition: all .275s;
+    transition: all .275s;
+}
+
+/* checked mark aspect */
+[type="checkbox"]:not(:checked) + label:after,
+[type="checkbox"]:checked + label:after {
+  content: '✔';
+  position: absolute;
+  top: .550em;
+  left: .18em;
+  font-size: 1.2rem;
+  color: green;
+  line-height: 0;
+  -webkit-transition: all .2s;
+    transition: all .2s;
+}
+
+/* checked mark aspect changes */
+[type="checkbox"]:not(:checked) + label:after {
+  opacity: 0;
+  -webkit-transform: scale(0) rotate(45deg);
+    transform: scale(0) rotate(45deg);
+}
+
+[type="checkbox"]:checked + label:after {
+  opacity: 1;
+  -webkit-transform: scale(1) rotate(0);
+    transform: scale(1) rotate(0);
+}
+
+/* Disabled checkbox */
+[type="checkbox"]:disabled:not(:checked) + label:before,
+[type="checkbox"]:disabled:checked + label:before {
+  box-shadow: none;
+  border-color: #bbb;
+  background-color: #e9e9e9;
+}
+
+
+/* Accessibility */
+[type="checkbox"]:checked:focus + label:before,
+[type="checkbox"]:not(:checked):focus + label:before {
+  box-shadow: inset 0 1px 3px rgba(0,0,0, .1), 0 0 0 6px rgba(203, 34, 237, .2);
+}

@@ -1,0 +1,124 @@
+.div-container {
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media screen and (min-width: 600px) {
+        max-width: 600px
+    }
+
+    @media (min-width: 720px) {
+        max-width: 800px;
+    }
+
+    @media (min-width: 1280px) {
+        max-width: 1300px;
+    }
+}
+
+.div-anexo {
+    font-weight: bold;
+    cursor: pointer;
+    background: green;
+    height: 22px;
+    width: 22px;
+    top: 0;
+    border-radius: 50%;
+    font-size: 16px;
+}
+
+.div-grid-tabela {
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr;
+    margin-top: 0.5rem;
+    margin-left: auto;
+    padding: 0.5rem;
+    margin-right: auto;
+}
+.div-grid-tabela:hover{
+    background-color: rgb(241, 241, 241);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.div-aling-text-visualizar{
+    text-align: right;
+}
+
+.img-width-icon {
+    width: 2rem;
+    height: 2rem;
+    top: 0;
+    cursor: pointer;
+}
+
+.div-ellipsis {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 1rem;
+}
+
+.div-aling-text {
+    text-align: center;
+}
+
+.div-titles {
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.div-separador {
+    content: '';
+    width: 100%;
+    height: 0.5px;
+    margin-top: 0.3rem;
+    margin-bottom: 1rem;
+    background-color: rgb(199, 199, 199);
+}
+
+.img-arrow-back{
+    cursor: pointer;
+}
+
+.img-logo {
+    width: 5rem;
+    position: relative;
+    margin-right: -50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 2.6rem;
+}
+
+.div-color {
+    color: var(--laranja-unimed);
+    cursor: pointer;
+}
+
+.div-color:hover {
+    text-decoration: underline;
+}
+
+.title {
+    position: relative;
+
+    p {
+        margin-top: 1rem;
+        font-size: 1.4rem;
+        color: var(--laranja-unimed);
+    }
+}
+
+.div-grid-anexo-selecionado{
+    display: grid;
+    margin-bottom: 1rem;
+    grid-template-columns: 3fr 1fr;
+    margin-top: 0.5rem;
+    margin-left: auto;
+    margin-right: auto;
+}

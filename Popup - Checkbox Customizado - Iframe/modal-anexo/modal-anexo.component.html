@@ -1,0 +1,18 @@
+<div class="div-container">
+    <div class="title">
+        <img class="img-logo" src="assets/images/logo.png" alt="">
+        <p>Proposta > {{cd_Movimentacao}} > Anexos(s)</p>
+    </div>
+    <div class="div-titles">
+        <div>Anexos(s)</div>
+        <div class="div-aling-text">Conferido?</div>
+        <div></div>
+    </div>
+    <div class="div-separador">
+    </div>
+    <div class="div-grid-tabela" *ngFor="let anexo of objArrayAnexos" (click)="Visualizar_Anexos(anexo)">
+        <div [title]="anexo.nm_Tipo_Arquivo" class="div-ellipsis">{{anexo.nm_Tipo_Arquivo}}</div>
+        <div class="div-ellipsis div-aling-text">Não</div>
+        <div class="div-ellipsis div-aling-text-visualizar div-color">Visualizar</div>
+    </div>
+</div>
