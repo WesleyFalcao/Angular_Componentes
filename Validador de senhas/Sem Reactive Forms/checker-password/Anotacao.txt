@@ -1,0 +1,13 @@
+Como fazer a implementação:
+
+1° Utilizei o: (ngModelChange)="Password_Change($event)"  no campo de input que quero monitorar.
+
+2° A função:
+
+ 	Password_Change(event){
+        	this.ds_Senha = event
+    	}
+
+3° Com o variável ds_Senha eu alimento o parâmetro de input pro meu componente:
+
+  <app-checker-password [Password]="ds_Senha" [Password_Confirmation]="ds_Confirmation_Senha"></app-checker-password>
